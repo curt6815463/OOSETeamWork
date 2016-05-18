@@ -1,0 +1,43 @@
+package team87;
+
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+
+import javax.swing.*;
+
+public class StateDiagram extends JComponent{
+	private final ArrayList<Shape> shapes;
+	public StateDiagram() {
+        shapes = new ArrayList<>();
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent me)
+            {
+            	shapes.add(new myEllipse(me.getX()-50, me.getY()-50, 100, 100,"asdf"));
+
+            	repaint();
+            }
+            public void mouseClicked(MouseEvent me) {
+            	
+            	
+                for (Shape s : shapes) {
+
+                    if (s.contains(me.getPoint())) {                                      
+                    	shapes.remove(s);
+                    }
+                }
+                repaint();
+            }
+        });
+    }
+	
+	protected void paintComponent(Graphics grphcs) {
+        super.paintComponent(grphcs);
+        Graphics2D g2d = (Graphics2D) grphcs;
+        for (Shape s : shapes) {
+            g2d.draw(s);
+            g2d.drawString(((myEllipse)s).getTitle(),((myEllipse)s).getx() , ((myEllipse)s).gety());
+        }
+    }
+}

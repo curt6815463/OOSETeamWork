@@ -1,0 +1,8 @@
+package team87;
+import javax.swing.*;
+public class CanvasDemo extends JFrame{
+	CanvasDemo()
+	{
+		setVisible(true);
+	}
+}

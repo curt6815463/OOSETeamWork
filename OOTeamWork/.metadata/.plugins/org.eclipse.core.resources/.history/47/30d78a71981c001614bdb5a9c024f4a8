@@ -1,0 +1,63 @@
+package team87;
+
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.geom.Ellipse2D;
+import java.util.*;
+
+import javax.swing.*;
+
+abstract class Component
+{
+	protected abstract void paint();
+}
+class composite extends Component
+{
+	StateDiagram s = GUI.getSD();
+	Graphics g = s.getGraphics();
+	protected void paint()
+	{
+		g.drawString("wtf", 100, 100);
+	}
+}
+
+public class StateDiagram extends JComponent{
+	private final ArrayList<Shape> shapes;
+	public StateDiagram() {
+		composite c = new composite();
+		c.paint();
+        shapes = new ArrayList<>();
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent me)
+            {
+            	for (Shape s : shapes) {
+
+                    if (s.contains(me.getPoint())) {                                      
+                    	shapes.remove(s);
+                    }
+                }
+            	
+
+            	repaint();
+            }
+            public void mouseClicked(MouseEvent me) {
+            	
+            	shapes.add(new myEllipse(me.getX()-50, me.getY()-50, 100, 100,"asdf"));
+                
+                repaint();
+            }
+        });
+    }
+	
+	protected void paintComponent(Graphics grphcs) {
+        
+        Graphics2D g2d = (Graphics2D) grphcs;
+        for (Shape s : shapes) {
+            g2d.draw(s);
+            g2d.drawString(((myEllipse)s).getTitle(),((myEllipse)s).getx() , ((myEllipse)s).gety());
+        }
+    }
+	
+	
+}

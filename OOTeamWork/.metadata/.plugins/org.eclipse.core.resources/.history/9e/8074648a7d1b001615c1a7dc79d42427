@@ -1,0 +1,36 @@
+package team87;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class DrawArea extends JComponent{
+	private Graphics2D g2;
+	private Image image;
+	int x,y;
+	DrawArea()
+	{
+		addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e)
+			{
+				x = e.getX();
+				y = e.getY();
+				if (g2 != null)
+				{
+					g2.drawRect(x, y, 50, 50);
+					repaint();
+				}
+			}
+		});
+	}
+	
+	protected void paintComponent(Graphics g)
+	{
+		if(image == null)
+		{
+			image = createImage(getSize().width,getSize().height);
+			g2 = (Graphics2D)image.getGraphics();			
+		}
+		g.drawImage(image, 0, 0, null);
+	}
+	
+}

@@ -1,0 +1,98 @@
+package team87;
+
+import java.awt.*;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.geom.Line2D;
+
+import javax.swing.JFrame;
+import javax.swing.JToolBar;
+import javax.swing.JButton;
+
+
+
+
+public class GUI extends JFrame {
+	
+	
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GUI frame = new GUI();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public GUI() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		
+		JToolBar toolBar = new JToolBar();
+		toolBar.setSize(300, 200);
+		toolBar.setToolTipText("ToolBar");
+		getContentPane().add(toolBar, BorderLayout.NORTH);
+		
+		JButton btnNewButton = new JButton("New button");
+		toolBar.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("New button");
+		toolBar.add(btnNewButton_1);
+		
+		Component canvas = new myCanvas();
+		getContentPane().add(canvas, BorderLayout.CENTER);
+		
+		
+		
+	}
+	
+	
+	
+	
+}
+class myCanvas extends Component
+{
+	int i = 100;
+	int mouseX, mouseY;
+    int mouseX_dragged, mouseY_dragged;
+    boolean mouseDragged;
+	myCanvas()
+	{
+		addMouseListener(myMouseAdapter);
+        addMouseMotionListener(myMouseAdapter);
+	}
+	MouseAdapter myMouseAdapter = new MouseAdapter(){
+		 
+        @Override
+        public void mousePressed(MouseEvent e) {
+        	repaint();
+        }
+ 
+        @Override
+        public void mouseDragged(MouseEvent e) {
+        }
+ 
+    };
+    
+	public void paint(Graphics g)
+	{
+		
+		 Graphics2D graphics2d = (Graphics2D)g;
+		 
+		 graphics2d.drawLine(i, 20, 350, 380);
+	     
+		 //graphics2d.clearRect(100, 20, 350, 380);
+		 i = i + 10;
+	}
+}
