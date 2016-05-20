@@ -1,0 +1,17 @@
+package sde;
+
+import java.awt.Graphics;
+
+public class Transition extends DiagramElement{
+	Point dest;
+	
+
+	@Override
+	public boolean intersect(Point p) {
+		return true;
+		
+	}
+
+	
+	
+}

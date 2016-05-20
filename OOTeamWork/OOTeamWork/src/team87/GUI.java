@@ -47,14 +47,19 @@ public class GUI extends JFrame {
 		toolBar.setToolTipText("ToolBar");
 		getContentPane().add(toolBar, BorderLayout.NORTH);
 		
-		JButton btnNewButton = new JButton("New button");
+		JButton btnNewButton = new JButton("state");
 		toolBar.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("New button");
+		JButton btnNewButton_1 = new JButton("transition");
 		toolBar.add(btnNewButton_1);
 		
+		
+		
 		sd = new StateDiagram();
-		getContentPane().add(sd, BorderLayout.CENTER);		
+		
+		
+		getContentPane().add(sd, BorderLayout.CENTER);
+		
 		
 	}
 	static public StateDiagram getSD()

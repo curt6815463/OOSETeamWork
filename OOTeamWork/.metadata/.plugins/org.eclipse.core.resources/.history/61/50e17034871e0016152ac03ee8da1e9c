@@ -1,0 +1,17 @@
+package sde;
+
+import java.awt.Graphics;
+
+public class State extends DiagramElement{
+	int width;
+	int height;
+	@Override
+	public void draw(Graphics g) {
+		g.drawLine(10, 20, 30, 20);
+	}
+	@Override
+	public boolean intersect(Point p) {
+		return true;	
+	}
+	
+}
