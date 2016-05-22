@@ -1,0 +1,11 @@
+package sde;
+
+public class TransitionStrategy implements ToolStrategy{
+
+	@Override
+	public void draw(DiagramElement d) {
+		
+		
+	}
+	
+}

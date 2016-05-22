@@ -1,0 +1,22 @@
+package sde;
+
+import java.awt.Shape;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.geom.Ellipse2D;
+
+import javax.swing.SwingUtilities;
+
+
+
+
+
+public class StateStrategy implements ToolStrategy{
+
+	@Override
+	public void draw(DiagramElement d) {
+		
+	}
+
+}

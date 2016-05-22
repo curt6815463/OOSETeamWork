@@ -1,0 +1,19 @@
+package sde;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class TransitionStrategy implements ToolStrategy{
+
+	@Override
+	public void draw(DiagramElement d) {
+		d.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent me)
+            {
+            	System.out.println("transition");
+            }
+        });
+	}
+	
+}

@@ -1,0 +1,11 @@
+package sde;
+import java.awt.*;
+import javax.swing.*;
+
+public class StateDiagramView {
+	StateDiagramView()
+	{
+		JFrame sdeFrame = new JFrame();
+		
+	}
+}

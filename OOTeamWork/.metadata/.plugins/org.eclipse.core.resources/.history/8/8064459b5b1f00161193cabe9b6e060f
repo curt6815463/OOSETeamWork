@@ -1,0 +1,34 @@
+package sde;
+
+import java.awt.event.*;
+
+public class StatediagramController 
+{
+	StateDiagramView sView;
+	DiagramElement deModel;
+	
+	StatediagramController(StateDiagramView v, DiagramElement m)
+	{
+		sView = v;
+		deModel = m;
+		sView.addStateBtnListener(new stateListioner());
+		sView.addTransitionBtnListener(new transitionListioner());
+	}
+	
+	class stateListioner implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e) {
+			
+			
+		}
+		
+	}
+	class transitionListioner implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e) {
+			
+			
+		}
+		
+	}
+}

@@ -1,0 +1,49 @@
+package sde;
+import java.awt.BorderLayout;
+import java.awt.Color;
+
+import javax.swing.*;
+
+
+public class test extends JFrame{
+	
+	test()
+	{
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 800, 600);
+		
+		JToolBar toolBar = new JToolBar();
+		toolBar.setSize(300, 200);
+		toolBar.setBackground(Color.lightGray);
+		toolBar.setToolTipText("ToolBar");
+		getContentPane().add(toolBar, BorderLayout.NORTH);
+		
+		JButton stateBtn = new JButton("state");
+		stateBtn.setSize(50, 50);
+		toolBar.add(stateBtn);
+		
+		JButton transitionBtn = new JButton("transition");
+		toolBar.add(transitionBtn);
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		test frame = new test();
+		StateDiagram sd = new StateDiagram();
+		
+		sd.add(new State());
+		sd.add(new Transition());
+		
+		frame.add(sd);
+		
+		
+		
+		
+		
+
+		frame.setSize(800, 600);
+		frame.setVisible(true);
+		
+
+	}
+
+}

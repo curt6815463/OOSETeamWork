@@ -1,23 +1,12 @@
 package sde;
-import javax.swing.*;
 
 
-public class test {
 
+public class test{
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		JFrame frame = new JFrame();
-		
-		StateDiagram s = new StateDiagram();
-		s.add(new State());
-	
-		
-		
-
-		frame.setSize(800, 600);
-		frame.setVisible(true);
-		
-
+			StateDiagramView v = new StateDiagramView();
+			DiagramElement m = new StateDiagram();
+			StatediagramController c = new StatediagramController(v,m);
 	}
 
 }

@@ -13,9 +13,10 @@ class Point
 	}
 }
 
-abstract public class DiagramElement extends Canvas{
+abstract public class DiagramElement{
 	String name;
 	Point loc;
+	public abstract void paint(Graphics g);
 	public abstract boolean intersect(Point p);
 	public void add(DiagramElement e)
 	{

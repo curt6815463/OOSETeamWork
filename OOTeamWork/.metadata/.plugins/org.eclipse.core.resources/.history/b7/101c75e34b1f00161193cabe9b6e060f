@@ -1,0 +1,26 @@
+package sde;
+import javax.swing.*;
+
+
+public class test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		JFrame frame = new JFrame();
+		frame.add(new State());
+		StateDiagram sd = new StateDiagram();
+		frame.add(sd);
+		
+		sd.add(new State());
+		sd.add(new Transition());
+	
+		
+		
+
+		frame.setSize(800, 600);
+		frame.setVisible(true);
+		
+
+	}
+
+}

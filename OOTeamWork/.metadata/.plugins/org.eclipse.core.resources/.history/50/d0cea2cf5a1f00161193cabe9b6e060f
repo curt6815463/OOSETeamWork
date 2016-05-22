@@ -1,0 +1,24 @@
+package sde;
+import java.awt.*;
+import javax.swing.*;
+
+public class StateDiagramView {
+	StateDiagramView()
+	{
+		JFrame sdeFrame = new JFrame();
+		sdeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		sdeFrame.setBounds(100, 100, 800, 600);
+		
+		JToolBar toolBar = new JToolBar();
+		toolBar.setSize(300, 200);
+		toolBar.setBackground(Color.lightGray);
+		toolBar.setToolTipText("ToolBar");
+		sdeFrame.getContentPane().add(toolBar, BorderLayout.NORTH);
+		
+		JButton btnNewButton = new JButton("state");
+		toolBar.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("transition");
+		toolBar.add(btnNewButton_1);
+	}
+}

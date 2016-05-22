@@ -1,0 +1,117 @@
+package team87;
+
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.geom.Ellipse2D;
+import java.util.*;
+
+import javax.swing.*;
+
+
+
+public class StateDiagram extends JComponent{
+	private final ArrayList<Shape> shapes;
+	double startX;
+	double startY;
+	boolean dragged;
+	Shape tempShape;
+	public StateDiagram() {
+		
+        shapes = new ArrayList<>();
+        addMouseMotionListener(new MouseMotionAdapter()
+        {
+        	public void mouseDragged(MouseEvent me)
+            {
+            	if(dragged)
+            	{
+            		double dx = me.getX() - startX;
+            		double dy = me.getY() - startY;
+            		double mx = me.getX();
+                    double my = me.getY();
+                    ((Ellipse2D.Double)tempShape).x = ((Ellipse2D.Double)tempShape).x + mx - startX;
+                    ((Ellipse2D.Double)tempShape).y = ((Ellipse2D.Double)tempShape).y + my - startY;
+            	}
+            	
+
+                repaint();  
+            }
+        });
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent me)
+            {
+            	startX = me.getX();
+            	startY = me.getY();
+            	if(SwingUtilities.isLeftMouseButton(me))
+            	{
+            		for (Shape s : shapes) {
+                		
+                        if (s.contains(me.getPoint())) {                                      
+                        	dragged = true;
+                        	tempShape = s;
+                        }
+                    }
+            	}
+            	
+            	if(!dragged)
+            	{
+            		if(SwingUtilities.isLeftMouseButton(me))
+                	{
+                		shapes.add(new myEllipse(me.getX()-50, me.getY()-50, 100, 100,"asdf"));
+                		repaint();
+                	}
+                	if(SwingUtilities.isRightMouseButton(me))
+                	{
+                		for (Shape s : shapes) {
+                    		
+                            if (s.contains(me.getPoint())) {                                      
+                            	shapes.remove(s);
+                            	repaint();
+                            }
+                        }
+                	}
+            	}
+            	
+            	
+            	
+
+            	repaint();
+            }
+            public void mouseReleased(MouseEvent me)
+            {
+            	dragged = false;
+            }
+            
+//            public void mouseClicked(MouseEvent me) {
+//            	 
+//            	if(SwingUtilities.isLeftMouseButton(me))
+//            	{
+//            		shapes.add(new myEllipse(me.getX()-50, me.getY()-50, 100, 100,"asdf"));
+//            		Ellipse2D.Double e = new Ellipse2D.Double(me.getX()-50, me.getY()-50, 100, 100);
+//            		repaint();
+//            	}
+//            	if(SwingUtilities.isRightMouseButton(me))
+//            	{
+//            		for (Shape s : shapes) {
+//                		
+//                        if (s.contains(me.getPoint())) {                                      
+//                        	shapes.remove(s);
+//                        	repaint();
+//                        }
+//                    }
+//            	}
+//            }
+        });
+    }
+	
+	protected void paintComponent(Graphics grphcs) {
+        
+        Graphics2D g2d = (Graphics2D) grphcs;
+        for (Shape s : shapes) {
+            g2d.draw(s);
+            g2d.drawString(((myEllipse)s).getTitle(),((myEllipse)s).getx() , ((myEllipse)s).gety());
+        }
+    }
+	
+	
+}

@@ -11,6 +11,7 @@ public class State extends DiagramElement{
 	
 	@Override
 	public void paint(Graphics g) {
+		
 		Graphics2D g2d = (Graphics2D) g;
         g2d.draw(new Ellipse2D.Double(20,20,20,20));
 	}

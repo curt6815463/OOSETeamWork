@@ -1,0 +1,13 @@
+package sde;
+
+public class toolStrategyContext {
+	ToolStrategy strategy; 	 
+	public toolStrategyContext(ToolStrategy strategy)
+	{
+		this.strategy = strategy;
+	}
+	public void ExecuteDrawStrategy(DiagramElement d)
+	{
+		this.strategy.draw(d);
+	}
+}

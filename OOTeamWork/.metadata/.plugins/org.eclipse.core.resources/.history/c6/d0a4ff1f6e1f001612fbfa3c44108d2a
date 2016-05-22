@@ -1,0 +1,11 @@
+package sde;
+
+public class StateStrategy implements ToolStrategy{
+
+	@Override
+	public void draw(DiagramElement d) {
+		
+		
+	}
+
+}
