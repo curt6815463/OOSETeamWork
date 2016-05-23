@@ -5,13 +5,16 @@ import java.awt.geom.*;
 
 
 public class Transition extends DiagramElement{
-	Point dest;
-	Transition(int x,int y){
-		dest = new Point(x,y);
+	Point first;
+	Point second;
+	Transition(Point x,Point y){
+		first = x;
+		second = y;
 	}
 	public void paint(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;
-		s = new Line2D.Double(dest.x,dest.y,dest.x+100,dest.y);
+		s = new Line2D.Double(first.x,first.y,second.x,second.y);
+		
         g2d.draw(s);
 	}
 	@Override
@@ -19,16 +22,7 @@ public class Transition extends DiagramElement{
 		return true;
 		
 	}
-	@Override
-	public void setLoc(int x, int y) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public boolean isContain(int x, int y) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+
 	
 	
 

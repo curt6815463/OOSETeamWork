@@ -4,6 +4,11 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
+class a extends JComponent
+{
+	
+}
+
 public class StateDiagramView 
 {
 	JButton stateBtn;

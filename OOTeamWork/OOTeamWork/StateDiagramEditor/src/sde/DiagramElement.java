@@ -19,8 +19,6 @@ abstract public class DiagramElement{
 	Shape s;
 	public abstract void paint(Graphics g);
 	public abstract boolean intersect(Point p);
-	public abstract void setLoc(int x,int y);
-	public abstract boolean isContain(int x,int y);
 	public void add(DiagramElement e)
 	{
 		

@@ -24,15 +24,6 @@ public class StateDiagram extends DiagramElement{
 		// TODO Auto-generated method stub
 		return false;
 	}
-	@Override
-	public void setLoc(int x, int y) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public boolean isContain(int x, int y) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+
 	
 }

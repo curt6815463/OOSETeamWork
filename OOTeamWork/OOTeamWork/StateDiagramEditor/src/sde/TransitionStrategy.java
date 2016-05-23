@@ -5,21 +5,22 @@ package sde;
 import java.awt.event.MouseEvent;
 
 public class TransitionStrategy implements ToolStrategy{
-	boolean isContain;
+	boolean isContain = false;
+	DiagramElement temp1;
+	DiagramElement temp2;
 	@Override
 	public void draw(DiagramElement d,MouseEvent e) {
-		Transition t = new Transition(e.getX(),e.getY());
-		d.add(t);
 		
-//		for (DiagramElement de : ((StateDiagram)d).des)
-//		{
-//			
-//			if(de.s.contains(e.getX(),e.getY()))
-//			{
-//				isContain = true;
-//			}
-//		}
-//		System.out.println(isContain);
+		
+		for (DiagramElement de : ((StateDiagram)d).des)
+		{
+			
+			if(de.s.contains(e.getX(),e.getY()))
+			{
+				temp1 = de;
+				isContain = true;
+			}
+		}
 	}
 
 	@Override
@@ -30,20 +31,23 @@ public class TransitionStrategy implements ToolStrategy{
 
 	@Override
 	public void released(DiagramElement d,MouseEvent e) {
-//		if(isContain)
-//		{
-//			for (DiagramElement de : ((StateDiagram)d).des)
-//			{
-//				
-//				if(de.s.contains(e.getX(),e.getY()))
-//				{
-//					
-//					Transition t = new Transition(e.getX(),e.getY());
-//					d.add(t);					
-//				}
-//			}
-//		}
-//		isContain = false;		
+		boolean contain = false;
+		for (DiagramElement de : ((StateDiagram)d).des)
+		{
+				
+			if(de.s.contains(e.getX(), e.getY()))
+			{	
+				temp2 = de;
+				contain = true;
+			}
+		}
+		
+		if(isContain && contain)
+		{
+			Transition t = new Transition(temp1.loc,temp2.loc);
+			d.add(t);
+		}
+		isContain = false;		
 	}
 
 	
