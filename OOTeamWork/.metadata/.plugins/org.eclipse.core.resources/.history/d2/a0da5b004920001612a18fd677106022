@@ -1,0 +1,51 @@
+package sde;
+
+
+import java.awt.event.MouseEvent;
+
+
+
+
+
+
+public class StateStrategy implements ToolStrategy{
+
+	boolean isContain;
+	public void draw(DiagramElement d,MouseEvent e) {
+		
+		for (DiagramElement de : ((StateDiagram)d).des)
+		{
+			
+			if(de.s.contains(e.getX(),e.getY()))
+			{
+				isContain = true;
+			}
+		}
+		if(!isContain)
+		{
+			State s = new State(e.getX(),e.getY());
+			d.add(s);		
+		}
+		isContain = false;
+	}
+
+	
+	public void move(DiagramElement d, MouseEvent pressE, MouseEvent dragE) {
+		int startX = pressE.getX();
+		int startY = pressE.getY();
+		for (DiagramElement e : ((StateDiagram)d).des)
+		{
+			if (e.s.contains(startX,startY))
+			{
+				System.out.println("asdf");
+				int dx = dragE.getX() - startX;
+				System.out.println(dx);
+				int dy = dragE.getY() - startY;
+				System.out.println(dy);
+				e.setLoc(100, 100);
+			}
+		}
+		
+	}
+
+}

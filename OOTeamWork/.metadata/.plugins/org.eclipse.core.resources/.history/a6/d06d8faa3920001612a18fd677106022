@@ -1,0 +1,28 @@
+package sde;
+
+import java.awt.*;
+import java.awt.geom.*;
+
+
+public class Transition extends DiagramElement{
+	Point dest;
+	
+	public void paint(Graphics g) {
+		Graphics2D g2d = (Graphics2D) g;
+        g2d.draw(new Line2D.Double(100,100,200,200));
+	}
+	@Override
+	public boolean intersect(Point p) {
+		return true;
+		
+	}
+	@Override
+	public void setShape() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
+	
+}

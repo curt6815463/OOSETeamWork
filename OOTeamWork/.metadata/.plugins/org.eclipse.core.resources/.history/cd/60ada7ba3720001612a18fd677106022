@@ -1,0 +1,32 @@
+package sde;
+
+import java.awt.*;
+import java.awt.geom.*;
+
+
+
+public class State extends DiagramElement{
+	int x;
+	int y;
+	State(int x, int y)
+	{
+		this.x = x;
+		this.y = y;
+	}
+	@Override
+	public void paint(Graphics g) {
+		
+		Graphics2D g2d = (Graphics2D) g;
+		s = new Ellipse2D.Double(x-35,y-35,70,70);
+        g2d.draw(s);
+	}
+	@Override
+	public boolean intersect(Point p) {
+		return true;	
+	}
+	public void setShape()
+	{
+		((Ellipse2D.Double)s).x = 
+				
+	}
+}

@@ -1,0 +1,21 @@
+package sde;
+
+
+
+import java.awt.event.MouseEvent;
+
+public class TransitionStrategy implements ToolStrategy{
+
+	@Override
+	public void draw(DiagramElement d,MouseEvent e) {
+		Transition t = new Transition(e.getX(),e.getY());
+		d.add(t);
+	}
+
+	@Override
+	public void move(DiagramElement d, MouseEvent pressE, MouseEvent dragE,StateDiagramView sView) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

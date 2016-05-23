@@ -1,0 +1,38 @@
+package sde;
+
+import java.awt.*;
+import java.awt.geom.*;
+
+
+public class Transition extends DiagramElement{
+	Point dest;
+	Transition(int x,int y){
+		dest = new Point(x,y);
+	}
+	public void paint(Graphics g) {
+		Graphics2D g2d = (Graphics2D) g;
+		s = new Line2D.Double(dest.x,dest.y,dest.x+100,dest.y+100);
+        g2d.draw(s);
+	}
+	@Override
+	public boolean intersect(Point p) {
+		return true;
+		
+	}
+	@Override
+	public void setLoc(int x, int y) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public boolean isContain(int x, int y) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	
+
+	
+	
+	
+}

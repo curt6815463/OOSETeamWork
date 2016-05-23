@@ -1,0 +1,46 @@
+package sde;
+
+import java.awt.event.*;
+
+public class StatediagramController 
+{
+	StateDiagramView sView;
+	DiagramElement deModel;
+	toolStrategyContext toolContext;
+	StatediagramController(StateDiagramView v, DiagramElement m)
+	{
+		sView = v;
+		deModel = m;
+		sView.addStateBtnListener(new stateListioner());
+		sView.addTransitionBtnListener(new transitionListioner());
+		sView.addCanvasListener(new mouseListioner());
+	}
+	
+	class stateListioner implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e) {
+			toolContext = new toolStrategyContext(new StateStrategy());
+			
+		}
+		
+	}
+	class transitionListioner implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e) {
+			toolContext = new toolStrategyContext(new TransitionStrategy());
+			
+		}
+		
+	}
+	class mouseListioner extends  MouseAdapter
+	{
+
+		public void mousePressed(MouseEvent e) {
+			System.out.println("333");
+			toolContext.ExecuteDrawStrategy(deModel,sView.getGraphics());
+			
+		}
+
+		
+	}
+}

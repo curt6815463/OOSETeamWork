@@ -1,0 +1,50 @@
+package sde;
+
+
+
+import java.awt.event.MouseEvent;
+
+public class TransitionStrategy implements ToolStrategy{
+	boolean isContain;
+	@Override
+	public void draw(DiagramElement d,MouseEvent e) {
+		Transition t = new Transition(e.getX(),e.getY());
+		d.add(t);
+		
+//		for (DiagramElement de : ((StateDiagram)d).des)
+//		{
+//			
+//			if(de.s.contains(e.getX(),e.getY()))
+//			{
+//				isContain = true;
+//			}
+//		}
+//		System.out.println(isContain);
+	}
+
+	@Override
+	public void move(DiagramElement d, MouseEvent dragE,StateDiagramView sView) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void released(DiagramElement d,MouseEvent e) {
+//		if(isContain)
+//		{
+//			for (DiagramElement de : ((StateDiagram)d).des)
+//			{
+//				
+//				if(de.s.contains(e.getX(),e.getY()))
+//				{
+//					
+//					Transition t = new Transition(e.getX(),e.getY());
+//					d.add(t);					
+//				}
+//			}
+//		}
+//		isContain = false;		
+	}
+
+	
+}

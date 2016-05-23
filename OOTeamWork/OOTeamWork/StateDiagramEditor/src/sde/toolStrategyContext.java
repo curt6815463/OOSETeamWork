@@ -1,0 +1,25 @@
+package sde;
+
+
+import java.awt.event.MouseEvent;
+
+public class toolStrategyContext {
+	ToolStrategy strategy;
+	DiagramElement m;
+	public toolStrategyContext(ToolStrategy strategy)
+	{
+		this.strategy = strategy;
+	}
+	public void ExecuteDrawStrategy(DiagramElement d,MouseEvent e)
+	{
+		this.strategy.draw(d,e);
+	}
+	public void shapeMove(DiagramElement d,MouseEvent dragE,StateDiagramView sView)
+	{
+		this.strategy.move(d,dragE,sView);
+	}
+	public void shapeRelease(DiagramElement d,MouseEvent e)
+	{
+		this.strategy.released(d,e);
+	}
+}
